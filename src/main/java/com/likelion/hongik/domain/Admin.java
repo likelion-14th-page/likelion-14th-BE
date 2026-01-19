@@ -34,4 +34,24 @@ public class Admin implements UserDetails {
 
     @Override
     public String getUsername() { return loginId; }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true; // 계정 만료 안 됨
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true; // 계정 잠김 안 됨
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true; // 비밀번호 만료 안 됨
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true; // 계정 활성화 됨
+    }
 }
