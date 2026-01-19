@@ -1,5 +1,6 @@
 package com.likelion.hongik.domain;
 
+import com.likelion.hongik.domain.enums.ResultType;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
