@@ -12,14 +12,8 @@ import org.springframework.web.bind.annotation.*;
 public class AdminController {
     private final AdminService adminService;
 
-    @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody LoginRequest request) {
-        boolean isSuccess = adminService.login(request.getLoginId(), request.getPassword());
-
-        if (isSuccess) {
-            return ResponseEntity.ok("로그인 성공");
-        } else {
-            return ResponseEntity.status(401).body("아이디 또는 비밀번호가 틀렸습니다.");
-        }
+    @GetMapping("/login") // 로그인 '페이지'를 보여주는 역할
+    public String loginPage() {
+        return "admin/login"; // src/main/resources/templates/admin/login.html 파일을 찾음
     }
 }
