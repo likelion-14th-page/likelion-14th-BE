@@ -21,6 +21,7 @@ public class StudentResult {
     @JoinColumn(name = "result_id")
     private Result result;
 
-    private String meetingDate; //면접 일시
+    private String meetingDate; //면접 날짜
+    private String meetingTime; //면접 일시
     private String location; //면접 장소
 }
