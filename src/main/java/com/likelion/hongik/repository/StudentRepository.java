@@ -12,4 +12,6 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 
     // 파트별(디자인/백엔드/프론트엔드) 학생 목록 조회
     List<Student> findAllByPart(PartType part);
+
+    Optional<Student> findByNameAndPrivateNum(String name, String privateNum);
 }

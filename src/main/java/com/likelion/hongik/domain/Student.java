@@ -20,7 +20,10 @@ public class Student {
     @Column(nullable = false, unique = true)
     private String studentNum; // 학번
 
+    private String name;
+
     private String email;
+
     private String phoneNum;
 
     @Enumerated(EnumType.STRING)

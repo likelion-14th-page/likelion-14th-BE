@@ -58,3 +58,5 @@ replay_pid*
 # --- Others ---
 *.ctxt
 .mtj.tmp/
+
+.env
