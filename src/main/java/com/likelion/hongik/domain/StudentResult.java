@@ -20,4 +20,7 @@ public class StudentResult {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "result_id")
     private Result result;
+
+    private String meetingDate; //면접 일시
+    private String location; //면접 장소
 }
