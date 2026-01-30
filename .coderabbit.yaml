@@ -5,10 +5,10 @@ reviews:
   profile: "chill" # 리뷰 스타일 (assertive, chill 중 선택 가능)
   request_changes_workflow: false
   high_level_summary: true
-  footer: |
-    ---
-    🚀 멋사 14기 페이지 백엔드
-    
+reviews:
+  profile: "chill" # 리뷰 스타일 (assertive, chill 중 선택 가능)
+  request_changes_workflow: false
+  high_level_summary: true
 chat:
   instructions: |
     - 모든 리뷰는 한국어로 진행해 주세요.
