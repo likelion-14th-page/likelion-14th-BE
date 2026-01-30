@@ -6,8 +6,8 @@ reviews:
   request_changes_workflow: false
   high_level_summary: true
   path_instructions:
-   - path: "**/*.java"
-    instructions: |
+    - path: "**/*.java"
+      instructions: |
         - Java 17 이상의 문법 권장사항을 반영해 주세요.
         - Spring Boot의 `@Transactional` 사용 위치나 dirty checking 관련 잠재적 이슈를 지적해 주세요.
         - 레이어드 아키텍처(Controller-Service-Repository)의 원칙을 잘 지키고 있는지 확인해 주세요.
