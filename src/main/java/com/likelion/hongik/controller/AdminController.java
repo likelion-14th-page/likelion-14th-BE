@@ -10,6 +10,12 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * 관리자(Admin) 관련 API 요청을 처리하는 컨트롤러입니다.
+ * <p>
+ * 관리자 로그인 및 관리 기능 전반을 담당합니다.
+ * </p>
+ */
 @RestController
 @RequestMapping("/api/admin")
 @RequiredArgsConstructor
@@ -17,9 +23,13 @@ import org.springframework.web.bind.annotation.*;
 public class AdminController {
 
     /**
-     * [스웨거용 가짜 로그인 API]
-     * 실제 동작은 Security Filter가 가로채서 처리하므로,
-     * 이 메서드 내부 로직은 실행되지 않습니다. (문서화 용도)
+     * 관리자 로그인을 처리하는 API 명세입니다.
+     * <p>
+     * 실제 로그인 로직은 Spring Security의 UsernamePasswordAuthenticationFilter에서 처리되므로,
+     * 이 메서드는 Swagger 문서화를 위한 껍데기(Dummy) 메서드입니다.
+     * </p>
+     *
+     * @param loginRequest 로그인 요청 정보 (username, password)
      */
     @PostMapping("/login")
     @Operation(

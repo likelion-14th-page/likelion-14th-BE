@@ -11,6 +11,12 @@ import org.springframework.transaction.annotation.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * 애플리케이션 시작 시 초기 데이터를 설정하는 초기화 클래스입니다.
+ * <p>
+ * 관리자 계정이 존재하지 않을 경우, 설정 파일의 정보를 바탕으로 초기 관리자 계정을 생성합니다.
+ * </p>
+ */
 @Component
 @RequiredArgsConstructor
 public class DataInit implements CommandLineRunner {
@@ -25,6 +31,15 @@ public class DataInit implements CommandLineRunner {
     @Value("${admin.password}")
     private String password;
 
+    /**
+     * 애플리케이션 구동 시점에 실행되는 메서드입니다.
+     * <p>
+     * DB에 해당 관리자 아이디가 존재하는지 확인하고,
+     * 없을 경우 새로운 관리자 계정(Root Admin)을 생성하여 저장합니다.
+     * </p>
+     *
+     * @param args 커맨드 라인 인자
+     */
     @Override
     @Transactional
     public void run(String... args) {
