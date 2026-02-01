@@ -20,7 +20,7 @@ public class StudentResultService {
 
     //지원 결과 확인
     public StudentResultResponseDto getStudentResult(String studentName, String privateNum) {
-        checkAnnouncementTime();
+        //checkAnnouncementTime();
 
         StudentResult studentResult = studentResultRepository
                 .findWithStudentByNameAndPrivateNum(studentName, privateNum)
