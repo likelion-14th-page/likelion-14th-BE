@@ -36,8 +36,8 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           source: "build/libs/app.jar"
-          target: "/home/ubuntu/"
-          strip_components: 2 # build/libs/ 경로 제외하고 파일만 전송
+          target: "/home/ubuntu/app" # 여기를 /home/ubuntu/에서 /home/ubuntu/app으로 수정
+          strip_components: 2
 
       # SSH를 통해 서버에서 서비스 재시작
       - name: Restart Service on EC2
