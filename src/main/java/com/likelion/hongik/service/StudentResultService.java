@@ -3,14 +3,11 @@ package com.likelion.hongik.service;
 import com.likelion.hongik.domain.Student;
 import com.likelion.hongik.domain.StudentResult;
 import com.likelion.hongik.dto.response.StudentResultResponseDto;
-import com.likelion.hongik.repository.ResultRepository;
 import com.likelion.hongik.repository.StudentRepository;
 import com.likelion.hongik.repository.StudentResultRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.time.LocalDateTime;
 
 @Service
 @RequiredArgsConstructor
@@ -38,8 +35,8 @@ public class StudentResultService {
         return StudentResultResponseDto.builder()
                 .studentId(student.getId())
                 .studentName(student.getName())
-                .document(studentResult.getResult().getDocument())
-                .finalResult(studentResult.getResult().getFinalResult())
+                .document(studentResult.getDocument())
+                .finalResult(studentResult.getFinalResult())
                 .location(studentResult.getLocation())
                 .meetingDate(studentResult.getMeetingDate())
                 .meetingTime(studentResult.getMeetingTime())

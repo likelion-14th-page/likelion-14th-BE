@@ -2,16 +2,16 @@ package com.likelion.hongik.domain;
 
 import com.likelion.hongik.domain.enums.PartType;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Getter
+@AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Builder
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,6 +31,10 @@ public class Student {
 
     private String privateNum; // 고유번호
 
-    @OneToMany(mappedBy = "student")
-    private List<StudentResult> studentResults = new ArrayList<>();
+    @OneToOne(mappedBy = "student")
+    private StudentResult studentResult;
+
+    public void setStudentResult(StudentResult studentResult) {
+        this.studentResult = studentResult;
+    }
 }
