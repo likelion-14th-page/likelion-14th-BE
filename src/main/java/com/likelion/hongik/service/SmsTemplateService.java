@@ -22,7 +22,8 @@ public class SmsTemplateService {
         귀중한 시간 내어 14기 리크루팅에 참여해 주셔서 감사합니다.
 
         서류 결과가 발표되었으니
-        https://hongik.likelion.com
+        
+        https://www.likelionhongik.com
         에서 확인해 주세요.
 
         홍익대학교 멋쟁이사자처럼 드림
@@ -41,7 +42,7 @@ public class SmsTemplateService {
 
         아래 링크에서 최종 결과를 확인해 주세요.
 
-        https://hongik.likelion.com
+        https://www.likelionhongik.com
         
         다시 한 번 지원해주셔서 감사합니다.
         
