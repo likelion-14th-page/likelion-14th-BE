@@ -1,12 +1,14 @@
 package com.likelion.hongik.controller;
 
 import com.likelion.hongik.service.AdminService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/admin")
 @RequiredArgsConstructor
+@Tag(name = "Admin 로그인 API")
 public class AdminController {
     private final AdminService adminService;
 
