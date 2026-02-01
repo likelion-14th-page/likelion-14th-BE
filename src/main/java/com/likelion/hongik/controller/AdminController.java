@@ -1,8 +1,13 @@
 package com.likelion.hongik.controller;
 
+import com.likelion.hongik.dto.request.LoginRequest; // DTO import 확인
 import com.likelion.hongik.service.AdminService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -10,10 +15,28 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @Tag(name = "Admin 로그인 API")
 public class AdminController {
-    private final AdminService adminService;
 
-    @GetMapping("/login") // 로그인 '페이지'를 보여주는 역할
-    public String loginPage() {
-        return "admin/login"; // src/main/resources/templates/admin/login.html 파일을 찾음
+    /**
+     * [스웨거용 가짜 로그인 API]
+     * 실제 동작은 Security Filter가 가로채서 처리하므로,
+     * 이 메서드 내부 로직은 실행되지 않습니다. (문서화 용도)
+     */
+    @PostMapping("/login")
+    @Operation(
+            summary = "관리자 로그인",
+            description = "Spring Security 로그인입니다. **Body를 JSON이 아닌 x-www-form-urlencoded(Form Data) 형식으로 보내주세요.**"
+    )
+    public void login(
+            @io.swagger.v3.oas.annotations.parameters.RequestBody(
+                    description = "로그인 정보 (Form Data)",
+                    required = true,
+                    content = @Content(
+                            mediaType = MediaType.APPLICATION_FORM_URLENCODED_VALUE,
+                            schema = @Schema(implementation = LoginRequest.class)
+                    )
+            )
+            LoginRequest loginRequest
+    ) {
+        // 실제 동작은 Security Filter가 처리
     }
 }
