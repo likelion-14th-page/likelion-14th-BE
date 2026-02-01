@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -24,4 +27,7 @@ public class StudentResult {
     private String meetingDate; //면접 날짜
     private String meetingTime; //면접 일시
     private String location; //면접 장소
+
+    @CreatedDate
+    private LocalDateTime createdAt;
 }

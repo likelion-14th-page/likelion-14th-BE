@@ -24,7 +24,7 @@ public class StudentResultService {
         Student student = studentRepository.findByNameAndPrivateNum(studentName, privateNum)
                 .orElseThrow(()-> new IllegalArgumentException("Student not found"));
 
-        StudentResult studentResult = studentResultRepository.findByStudent(student)
+        StudentResult studentResult = studentResultRepository.findFirstByStudentOrderByCreatedAtDesc(student)
                 .orElseThrow(()-> new IllegalArgumentException("StudentResult not found"));
 
 //        LocalDateTime nowTime = LocalDateTime.now();
