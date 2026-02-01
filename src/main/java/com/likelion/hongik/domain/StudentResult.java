@@ -20,7 +20,7 @@ public class StudentResult {
     private Long id;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "student_id")
+    @JoinColumn(name = "student_id", nullable = false, unique = true)
     private Student student;
 
     @Enumerated(EnumType.STRING)
@@ -44,4 +44,8 @@ public class StudentResult {
 
     @CreatedDate
     private LocalDateTime createdAt;
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
 }

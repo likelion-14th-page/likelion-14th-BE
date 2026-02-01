@@ -12,6 +12,9 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder
+@Table(indexes = {
+        @Index(name = "idx_student_name_private_num", columnList = "name, privateNum")
+})
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,5 +39,8 @@ public class Student {
 
     public void setStudentResult(StudentResult studentResult) {
         this.studentResult = studentResult;
+        if (studentResult != null && studentResult.getStudent() != this) {
+            studentResult.setStudent(this);
+        }
     }
 }
