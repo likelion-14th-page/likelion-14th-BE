@@ -31,10 +31,16 @@ public class SecurityConfig {
                 .formLogin(form -> form
                     .loginProcessingUrl("/api/admin/login")
                     .successHandler((request, response, authentication) -> {
-                        response.setStatus(HttpServletResponse.SC_OK); // 리다이렉트 대신 200 반환
+                        response.setStatus(HttpServletResponse.SC_OK);
+                        response.setContentType("application/json"); // JSON으로 응답
+                        response.setCharacterEncoding("UTF-8");
+                        response.getWriter().write("{\"message\":\"로그인 성공\"}"); // 리다이렉트 대신 200 반환
                     })
                     .failureHandler((request, response, exception) -> {
-                        response.setStatus(HttpServletResponse.SC_UNAUTHORIZED); // 401 반환
+                        response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+                        response.setContentType("application/json"); // JSON으로 응답
+                        response.setCharacterEncoding("UTF-8");
+                        response.getWriter().write("{\"error\":\"로그인 실패\"}");
                     })
                     .permitAll()
                 )
