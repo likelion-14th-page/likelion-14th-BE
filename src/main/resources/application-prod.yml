@@ -16,6 +16,6 @@ spring:
         show_sql: true # 생성되는 SQL 쿼리를 로그로 확인
         format_sql: true
 
-  admin:
-    username: ${ADMIN_USERNAME}
-    password: ${ADMIN_PASSWORD}
+admin:
+  username: ${ADMIN_USERNAME}
+  password: ${ADMIN_PASSWORD}
