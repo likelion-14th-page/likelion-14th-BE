@@ -10,6 +10,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
+
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
@@ -24,6 +26,14 @@ public class StudentResultService {
 
         StudentResult studentResult = studentResultRepository.findByStudent(student)
                 .orElseThrow(()-> new IllegalArgumentException("StudentResult not found"));
+
+//        LocalDateTime nowTime = LocalDateTime.now();
+//        LocalDateTime target_doc = LocalDateTime.of(2026, 2, 28, 10, 0, 0)
+//        LocalDateTime target_final= LocalDateTime.of(2026,3,7,10,0,0);
+//
+//        if(nowTime.isBefore(target_doc)){
+//          throw new IllegalArgumentException("아직 합격자 조회 시간이 아닙니다. 현재 시각 = " + nowTime);
+//        }
 
         return StudentResultResponseDto.builder()
                 .studentId(student.getId())
