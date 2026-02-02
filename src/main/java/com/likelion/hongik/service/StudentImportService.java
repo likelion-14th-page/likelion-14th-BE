@@ -36,7 +36,7 @@ public class StudentImportService {
                 );
 
         if (student.getId() != null) {
-            student.updateApplication(req.getName(), req.getPhoneNum(), part, req.getPrivateNum());
+            student.updateApplication(req.getName(), req.getPhoneNum(), part, req.getPrivateNum(), req.getEmail());
         }
 
         studentRepository.save(student);
