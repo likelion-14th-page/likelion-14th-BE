@@ -35,7 +35,7 @@ public class SmsDocumentService {
 
         //메시지 리스트 생성
         List<Message> messageList = students.stream()
-                .filter(s -> s.getPhoneNum() != null) // 번호 없는 학생 제외
+                .filter(s -> s.getPhoneNum() != null && !s.getPhoneNum().isBlank()) // 번호 없는 학생 제외
                 .map(student -> {
                     Message message = new Message();
                     message.setFrom(fromNumber);
