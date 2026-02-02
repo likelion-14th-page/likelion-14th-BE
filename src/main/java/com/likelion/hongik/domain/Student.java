@@ -37,6 +37,13 @@ public class Student {
     @OneToOne(mappedBy = "student")
     private StudentResult studentResult;
 
+    public void updateApplication(String name, String phoneNum, PartType part, String privateNum) {
+        this.name = name;
+        this.phoneNum = phoneNum;
+        this.part = part;
+        this.privateNum = privateNum;
+    }
+
     public void setStudentResult(StudentResult studentResult) {
         this.studentResult = studentResult;
         if (studentResult != null && studentResult.getStudent() != this) {
