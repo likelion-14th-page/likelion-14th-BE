@@ -1,26 +1,24 @@
 package com.likelion.hongik.controller;
 
 
-import com.likelion.hongik.domain.Student;
-import com.likelion.hongik.domain.enums.ResultType;
 import com.likelion.hongik.domain.enums.SmsType;
-import com.likelion.hongik.service.SmsService;
+import com.likelion.hongik.service.SmsDocumentService;
+import com.likelion.hongik.service.SmsFinalService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
-import net.nurigo.sdk.message.service.MessageService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/admin/message")
 @RequiredArgsConstructor
 public class SmsController {
-    private final SmsService smsService;
-
+    private final SmsDocumentService smsDocumentService;
+    private final SmsFinalService smsFinalService;
     // 서류 결과 전원 발송
     @Tag(name = "서류 결과 전원 발송 SMS api")
     @PostMapping("/document")
     public String sendDocumentNotice() {
-        int successCount = smsService.sendNoticeToAll(SmsType.DOCUMENT_NOTICE);
+        int successCount = smsDocumentService.sendNoticeToAll(SmsType.DOCUMENT_NOTICE);
         return successCount + "건의 서류 결과 문자가 성공적으로 발송되었습니다.";
     }
 
@@ -29,7 +27,7 @@ public class SmsController {
     @Tag(name = "최종 결과 전원 발송 SMS api")
     @PostMapping("/final")
     public String sendFinalNotice() {
-        int successCount = smsService.sendNoticeToAll(SmsType.FINAL_NOTICE);
+        int successCount = smsFinalService.sendNoticeToDocuments(SmsType.FINAL_NOTICE);
         return successCount + "건의 최종 결과 문자가 성공적으로 발송되었습니다.";
     }
 

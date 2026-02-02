@@ -5,12 +5,10 @@ import com.likelion.hongik.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.nurigo.sdk.message.model.Message;
-import net.nurigo.sdk.message.request.SingleMessageSendingRequest;
 import net.nurigo.sdk.message.response.MultipleDetailMessageSentResponse;
 import net.nurigo.sdk.message.service.DefaultMessageService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -18,7 +16,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 
-public class SmsService {
+public class SmsDocumentService {
 
     private final DefaultMessageService messageService;
     private final StudentRepository studentRepository;
