@@ -47,28 +47,25 @@ public class SmsService {
                 })
                 .toList();
 
+
+        if (messageList.isEmpty()) return 0;
+
         try {
             // 그룹 발송 실행
-            MultipleDetailMessageSentResponse response = messageService.send(messageList);
+            MultipleDetailMessageSentResponse response = messageService.send(messageList,false,true);
 
-            // 1. 접수 성공 건수 (messageList의 크기)
-            int successCount = 0;
-            if (response.getMessageList() != null) {
-                successCount = response.getMessageList().size();
-            }
+            int total = messageList.size();
+            int failCount = response.getFailedMessageList() == null ? 0 : response.getFailedMessageList().size();
+            int successCount = total - failCount;
 
-            // 2. 접수 실패 건수 (failedMessageList의 크기)
-            int failCount = 0;
             if (response.getFailedMessageList() != null) {
-                failCount = response.getFailedMessageList().size();
-
-                // 어떤 게 실패했는지 로그로 남겨두면 나중에 확인하기 좋습니다.
                 response.getFailedMessageList().forEach(fail ->
                         log.error("[SMS 접수실패] 번호: {}, 사유: {}", fail.getTo(), fail.getStatusMessage())
                 );
             }
 
-            log.info("[SMS 통계] 최종 접수 성공: {}, 접수 실패: {}", successCount, failCount);
+            log.info("[SMS 통계] 요청: {}, 접수성공: {}, 접수실패: {}", total, successCount, failCount);
+
             return successCount;
 
         } catch (Exception e) {
