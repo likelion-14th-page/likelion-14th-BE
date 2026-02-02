@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>멋쟁이사자처럼 14기 서버</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #FFF5E1;
+            font-family: 'Pretendard', sans-serif;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+        }
+        .lion-emoji {
+            font-size: 100px;
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+        h1 {
+            color: #FF8C00;
+            margin-top: 20px;
+            font-size: 24px;
+            line-height: 1.4;
+        }
+        p {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+        /* 버튼 스타일 추가 */
+        .apply-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #FF8C00;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: transform 0.2s, background-color 0.2s;
+            box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
+        }
+        .apply-button:hover {
+            background-color: #E67E00;
+            transform: scale(1.05);
+        }
+        .footer {
+            margin-top: 40px;
+            color: #FFA500;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-30px);}
+            60% {transform: translateY(-15px);}
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="lion-emoji">🦁</div>
+    <h1>어흥! 홍익대학교 <br>멋쟁이사자처럼 14기 서버입니다.</h1>
+    <p>현재 서버가 정상적으로 작동 중이에요!</p>
+
+    <a href="https://likelionhongik.com" class="apply-button" target="_blank">
+        14기 지원 바로가기 ➔
+    </a>
+
+    <div class="footer">LIKELION HONGIK Univ. 14th</div>
+</div>
+</body>
+</html>
