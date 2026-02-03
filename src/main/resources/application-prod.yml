@@ -1,5 +1,11 @@
 server:
   port: 8080
+  servlet:
+    session:
+      cookie:
+        same-site: none  # 서로 다른 도메인 간 쿠키 전송 허용
+        secure: true     # HTTPS 환경에서만 쿠키 전송 (필수)
+        http-only: true  # 자바스크립트로 쿠키 탈취 방지 (보안 강화)
 
 spring:
   datasource:
