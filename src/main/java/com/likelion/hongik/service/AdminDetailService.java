@@ -14,6 +14,12 @@ public class AdminDetailService implements UserDetailsService {
 
     private final AdminRepository adminRepository;
 
+    /**
+     *
+     * @param loginId
+     * @return 로그인 (spring security 처리)
+     * @throws UsernameNotFoundException
+     */
     @Override
     public UserDetails loadUserByUsername(String loginId) throws UsernameNotFoundException {
         return adminRepository.findByLoginId(loginId)
