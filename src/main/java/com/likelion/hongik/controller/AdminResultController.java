@@ -2,6 +2,7 @@ package com.likelion.hongik.controller;
 
 import com.likelion.hongik.dto.request.MeetingRequestDto;
 import com.likelion.hongik.dto.request.ResultCheckRequest;
+import com.likelion.hongik.dto.response.AdminStudentDocRowDto;
 import com.likelion.hongik.dto.response.AdminStudentRowDto;
 import com.likelion.hongik.service.AdminResultUpdateService;
 import com.likelion.hongik.service.AdminStudentQueryService;
@@ -32,6 +33,16 @@ public class AdminResultController {
     public List<AdminStudentRowDto> getStudents(@RequestParam(required = false) String part) {
         return adminStudentQueryService.getStudents(part);
     }
+
+    @Operation(
+            summary = "서류 합격자 조회",
+            description = "관리자 페이지 목록 렌더링용 API입니다. part 파라미터가 없으면 전체를 조회하고, part가 있으면 해당 파트만 조회합니다. (예: 전체/디자인/프론트엔드/백엔드)"
+    )
+    @GetMapping
+    public List<AdminStudentDocRowDto> getStudentsPass(@RequestParam(required = false) String part) {
+        return adminStudentQueryService.getStudentsDoc(part);
+    }
+
     @Operation(
             summary = "서류 결과 체크(합격/불합격)",
             description = "관리자 페이지 체크박스 동작입니다. checked=true이면 합격, false이면 불합격으로 저장합니다."
@@ -54,7 +65,7 @@ public class AdminResultController {
             summary = "면접 일정 등록 및 수정"
     )
     @PostMapping("/{studentId}/meeting")
-    public String updateMeeting(@PathVariable Long studentId, @RequestBody MeetingRequestDto dto){
-        return adminResultUpdateService.updateMeetingDate(studentId, dto);
+    public void updateMeeting(@PathVariable Long studentId, @RequestBody MeetingRequestDto dto){
+        adminResultUpdateService.updateMeetingDate(studentId, dto);
     }
 }

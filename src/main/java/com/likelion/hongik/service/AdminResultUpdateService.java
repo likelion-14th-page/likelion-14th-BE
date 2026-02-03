@@ -31,11 +31,14 @@ public class AdminResultUpdateService {
     }
 
     @Transactional
-    public String updateMeetingDate(Long studentId, MeetingRequestDto dto) {
+    public void updateMeetingDate(Long studentId, MeetingRequestDto dto) {
         StudentResult studentResult = studentResultRepository.findByStudentIdWithStudent(studentId)
                 .orElseThrow(() -> new IllegalArgumentException("학생 결과가 없습니다."));
 
-        studentResult.updateMeetingDate(dto);
-        return studentResult.toString();
+        if(studentResult.getDocument() != ResultType.합격){
+            throw new IllegalArgumentException("서류 합격자가 아닌 학생은 면접 시간을 정할 수 없습니다. studentId = " + studentId);
+        }
+
+        studentResult.updateMeetingDate(dto.getMeetingDate(), dto.getMeetingTime(), dto.getLocation());
     }
 }

@@ -50,9 +50,15 @@ public class StudentResult {
         this.student = student;
     }
 
-    public void updateMeetingDate(MeetingRequestDto dto) {
-        this.meetingDate = dto.getMeetingDate();
-        this.meetingTime = dto.getMeetingTime();
-        this.location = dto.getLocation();
+    public void updateMeetingDate(String meetingDate, String meetingTime, String location) {
+        if (meetingDate != null) {
+            this.meetingDate = meetingDate;
+        }
+        if(meetingTime != null) {
+            this.meetingTime = meetingTime;
+        }
+        if(location != null) {
+            this.location = location;
+        }
     }
 }
