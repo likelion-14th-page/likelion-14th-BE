@@ -55,21 +55,4 @@ public interface StudentResultRepository extends JpaRepository<StudentResult, Lo
         ORDER BY sr.id DESC
     """)
     List<StudentResult> findAllWithStudentByPartOrderByIdDesc(@Param("part") PartType part);
-
-    @Query("""
-        SELECT sr FROM StudentResult sr
-        JOIN FETCH sr.student s
-        WHERE sr.document = :result
-        ORDER BY sr.id DESC
-    """)
-    List<StudentResult> findAllDocumentAndStudent(@Param("result") ResultType result);
-
-    @Query("""
-        SELECT sr FROM StudentResult sr
-        JOIN FETCH sr.student s
-        WHERE sr.document = :result
-             AND s.part = :part
-        ORDER BY sr.id DESC
-    """)
-    List<StudentResult> findAllDocumentAndStudentWithPart(@Param("result") ResultType result, @Param("part") PartType part);
 }

@@ -1,5 +1,8 @@
 server:
   port: 8080
+  error:
+    include-message: always 
+    include-binding-errors: always
 
 spring:
   datasource:
@@ -15,11 +18,6 @@ spring:
       hibernate:
         show_sql: true # 생성되는 SQL 쿼리를 로그로 확인
         format_sql: true
-
-  web:
-    error:
-      include-message: always
-      include-binding-errors: always
 
 admin:
   username: ${ADMIN_USERNAME}

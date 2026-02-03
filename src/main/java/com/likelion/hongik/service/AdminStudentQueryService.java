@@ -2,8 +2,6 @@ package com.likelion.hongik.service;
 
 import com.likelion.hongik.domain.StudentResult;
 import com.likelion.hongik.domain.enums.PartType;
-import com.likelion.hongik.domain.enums.ResultType;
-import com.likelion.hongik.dto.response.AdminStudentDocRowDto;
 import com.likelion.hongik.dto.response.AdminStudentRowDto;
 import com.likelion.hongik.repository.StudentResultRepository;
 import lombok.RequiredArgsConstructor;
@@ -40,33 +38,6 @@ public class AdminStudentQueryService {
                         .finalResult(sr.getFinalResult())
                         .build())
                 .toList();
-    }
-
-    public List<AdminStudentDocRowDto> getStudentsDoc(String part){
-        List<StudentResult> results;
-
-        if (part == null || part.isBlank() || part.equals("전체")) {
-            results = studentResultRepository.findAllDocumentAndStudent(ResultType.합격);
-        } else {
-            PartType partType = mapPart(part);
-            results = studentResultRepository.findAllDocumentAndStudentWithPart(ResultType.합격,partType);
-        }
-
-        return results.stream()
-                .map(sr -> AdminStudentDocRowDto.builder()
-                        .studentId(sr.getStudent().getId())
-                        .part(sr.getStudent().getPart())
-                        .name(sr.getStudent().getName())
-                        .studentNum(sr.getStudent().getStudentNum())
-                        .phoneNum(sr.getStudent().getPhoneNum())
-                        .document(sr.getDocument())
-                        .finalResult(sr.getFinalResult())
-                        .meetingDate(sr.getMeetingDate())
-                        .meetingTime(sr.getMeetingTime())
-                        .location(sr.getLocation())
-                        .build())
-                .toList();
-
     }
 
     private PartType mapPart(String raw) {
