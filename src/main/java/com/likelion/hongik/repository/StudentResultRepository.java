@@ -55,6 +55,4 @@ public interface StudentResultRepository extends JpaRepository<StudentResult, Lo
         ORDER BY sr.id DESC
     """)
     List<StudentResult> findAllWithStudentByPartOrderByIdDesc(@Param("part") PartType part);
-
-
 }

@@ -25,7 +25,7 @@ public class AdminResultController {
 
     @Operation(
             summary = "지원자 전체 조회",
-            description = "관리자 페이지 목록 렌더링용 API입니다. part 파라미터가 없으면 전체를 조회하고, part가 있으면 해당 파트만 조회합니다. (예: 전체/기획/디자인/프론트엔드/백엔드)"
+            description = "관리자 페이지 목록 렌더링용 API입니다. part 파라미터가 없으면 전체를 조회하고, part가 있으면 해당 파트만 조회합니다. (예: 전체/디자인/프론트엔드/백엔드)"
     )
     @GetMapping
     public List<AdminStudentRowDto> getStudents(@RequestParam(required = false) String part) {

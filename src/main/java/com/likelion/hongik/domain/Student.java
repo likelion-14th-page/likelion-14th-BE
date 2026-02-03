@@ -37,11 +37,12 @@ public class Student {
     @OneToOne(mappedBy = "student")
     private StudentResult studentResult;
 
-    public void updateApplication(String name, String phoneNum, PartType part, String privateNum) {
+    public void updateApplication(String name, String phoneNum, PartType part, String privateNum, String email) {
         this.name = name;
         this.phoneNum = phoneNum;
         this.part = part;
         this.privateNum = privateNum;
+        this.email = email;
     }
 
     public void setStudentResult(StudentResult studentResult) {
