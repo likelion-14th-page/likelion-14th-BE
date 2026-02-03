@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class StudentResultResponseDto {
+    private String message;
     private Long studentId;
     private String studentName;
     private ResultType document;
