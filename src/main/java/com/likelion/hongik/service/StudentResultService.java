@@ -20,13 +20,14 @@ public class StudentResultService {
 
     //지원 결과 확인
     public StudentResultResponseDto getStudentResult(String studentName, String privateNum) {
-        //checkAnnouncementTime();
+        // String message = checkAnnouncementTime();
 
         StudentResult studentResult = studentResultRepository
                 .findWithStudentByNameAndPrivateNum(studentName, privateNum)
                 .orElseThrow(() -> new IllegalArgumentException("지원자 정보를 찾을 수 없습니다."));
 
         return StudentResultResponseDto.builder()
+                // .message(message)
                 .studentId(studentResult.getStudent().getId())
                 .studentName(studentResult.getStudent().getName())
                 .document(studentResult.getDocument())
@@ -37,12 +38,23 @@ public class StudentResultService {
                 .build();
     }
 
-    private void checkAnnouncementTime() {
+    private String checkAnnouncementTime() {
         LocalDateTime now = LocalDateTime.now();
-        LocalDateTime targetDoc = LocalDateTime.of(2026, 2, 28, 10, 0);
+        LocalDateTime targetDoc = LocalDateTime.of(2026, 3, 1, 10, 0);
+        LocalDateTime closeDoc = LocalDateTime.of(2026,3,5,22,0);
+        LocalDateTime targetFinal = LocalDateTime.of(2026,3,7,10,0);
 
         if (now.isBefore(targetDoc)) {
-            throw new IllegalArgumentException("아직 조회 시간이 아닙니다.");
+            throw new IllegalArgumentException("아직 서류 합격자 조회 시간이 아닙니다." + now);
+        }
+        else if (now.isAfter(closeDoc) && now.isBefore(targetFinal)) {
+            throw new IllegalArgumentException("아직 최종 합격자 조회 시간이 아닙니다." + now);
+        }
+        else if(now.isAfter(targetDoc) && now.isBefore(closeDoc)){
+            return "서류 합격자 조회 기간입니다.";
+        }
+        else {
+            return "최종 합격자 조회 기간입니다.";
         }
     }
 }
