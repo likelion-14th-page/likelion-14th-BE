@@ -18,8 +18,8 @@ spring:
 
   web:
     error:
-      include-message: always
-      include-binding-errors: always
+      include-message: never
+      include-binding-errors: never
 
 admin:
   username: ${ADMIN_USERNAME}
