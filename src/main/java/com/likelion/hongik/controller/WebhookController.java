@@ -23,6 +23,11 @@ public class WebhookController {
     @Value("${webhook.token}")
     private String webhookToken;
 
+    /**
+     *
+     * @param token X-WEBHOOK-TOKEN
+     * @param request GoogleFormWebhookRequest
+     */
     @Operation(
             summary = "구글폼 제출 수신(Webhook)",
             description = "Google Apps Script에서 호출하는 Webhook입니다. 지원자(part, name, email, studentNum, phoneNum, privateNum)를 수신해 DB에 저장합니다. X-WEBHOOK-TOKEN 헤더로 인증합니다."

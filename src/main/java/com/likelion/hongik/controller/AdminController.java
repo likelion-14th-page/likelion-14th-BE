@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/admin")
 @RequiredArgsConstructor
-@Tag(name = "Admin 로그인 API")
+@Tag(name = "[Admin] 로그인 API")
 public class AdminController {
 
     /**

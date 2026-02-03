@@ -19,6 +19,11 @@ public class AdminStudentQueryService {
 
     private final StudentResultRepository studentResultRepository;
 
+    /**
+     * 지원자 전체 조회
+     * @param part
+     * @return
+     */
     public List<AdminStudentRowDto> getStudents(String part) {
         List<StudentResult> results;
 
@@ -42,6 +47,11 @@ public class AdminStudentQueryService {
                 .toList();
     }
 
+    /**
+     * 서류 합격자 조회
+     * @param part
+     * @return
+     */
     public List<AdminStudentDocRowDto> getStudentsDoc(String part){
         List<StudentResult> results;
 
