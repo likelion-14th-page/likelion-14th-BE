@@ -1,6 +1,7 @@
 package com.likelion.hongik.domain;
 
 import com.likelion.hongik.domain.enums.ResultType;
+import com.likelion.hongik.dto.request.MeetingRequestDto;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
@@ -47,5 +48,11 @@ public class StudentResult {
 
     public void setStudent(Student student) {
         this.student = student;
+    }
+
+    public void updateMeetingDate(MeetingRequestDto dto) {
+        this.meetingDate = dto.getMeetingDate();
+        this.meetingTime = dto.getMeetingTime();
+        this.location = dto.getLocation();
     }
 }

@@ -2,6 +2,7 @@ package com.likelion.hongik.service;
 
 import com.likelion.hongik.domain.StudentResult;
 import com.likelion.hongik.domain.enums.ResultType;
+import com.likelion.hongik.dto.request.MeetingRequestDto;
 import com.likelion.hongik.repository.StudentResultRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -27,5 +28,14 @@ public class AdminResultUpdateService {
                 .orElseThrow(() -> new IllegalArgumentException("학생 결과가 없습니다. studentId=" + studentId));
 
         sr.updateFinalResult(checked ? ResultType.합격 : ResultType.불합격);
+    }
+
+    @Transactional
+    public String updateMeetingDate(Long studentId, MeetingRequestDto dto) {
+        StudentResult studentResult = studentResultRepository.findByStudentIdWithStudent(studentId)
+                .orElseThrow(() -> new IllegalArgumentException("학생 결과가 없습니다."));
+
+        studentResult.updateMeetingDate(dto);
+        return studentResult.toString();
     }
 }

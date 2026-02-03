@@ -1,5 +1,6 @@
 package com.likelion.hongik.controller;
 
+import com.likelion.hongik.dto.request.MeetingRequestDto;
 import com.likelion.hongik.dto.request.ResultCheckRequest;
 import com.likelion.hongik.dto.response.AdminStudentRowDto;
 import com.likelion.hongik.service.AdminResultUpdateService;
@@ -47,5 +48,13 @@ public class AdminResultController {
     @PatchMapping("/{studentId}/final")
     public void updateFinal(@PathVariable Long studentId, @RequestBody ResultCheckRequest req) {
         adminResultUpdateService.updateFinal(studentId, req.isChecked());
+    }
+
+    @Operation(
+            summary = "면접 일정 등록 및 수정"
+    )
+    @PostMapping("/{studentId}/meeting")
+    public String updateMeeting(@PathVariable Long studentId, @RequestBody MeetingRequestDto dto){
+        return adminResultUpdateService.updateMeetingDate(studentId, dto);
     }
 }
