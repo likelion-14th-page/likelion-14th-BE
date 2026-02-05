@@ -22,7 +22,7 @@ public class SmsTemplateService {
                     
                     
                 
-        https://www.likelionhongik.com
+        https://www.likelionhongik.com/apply-check
         에서 이름 및 식별 번호를 넣어 서류 합격 여부를 확인해 주세요.
         
         서류 합격자에 한해 면접 일정 및 장소가 함께 공지되었습니다. 
@@ -41,7 +41,7 @@ public class SmsTemplateService {
         최종 합격 여부는 아래의 링크에서 확인하실 수 있습니다.
                     
                     
-        https://www.likelionhongik.com
+        https://www.likelionhongik.com/apply-check
         에서 이름 및 식별 번호를 넣어 최종 합격 여부를 확인해 주세요.
            
         “최종 합격자”는 반드시 오늘 6시까지 010-3120-2936으로 확인 여부 회신 부탁드립니다.
