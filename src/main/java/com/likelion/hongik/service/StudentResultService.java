@@ -20,14 +20,14 @@ public class StudentResultService {
 
     //지원 결과 확인
     public StudentResultResponseDto getStudentResult(String studentName, String privateNum) {
-        String message = checkAnnouncementTime();
+        //String message = checkAnnouncementTime();
 
         StudentResult studentResult = studentResultRepository
                 .findWithStudentByNameAndPrivateNum(studentName, privateNum)
                 .orElseThrow(() -> new IllegalArgumentException("지원자 정보를 찾을 수 없습니다."));
 
         return StudentResultResponseDto.builder()
-                .message(message)
+                //.message(message)
                 .studentId(studentResult.getStudent().getId())
                 .studentName(studentResult.getStudent().getName())
                 .document(studentResult.getDocument())
