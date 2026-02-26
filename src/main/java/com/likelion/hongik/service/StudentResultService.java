@@ -28,8 +28,9 @@ public class StudentResultService {
                 .orElseThrow(() -> new IllegalArgumentException("지원자 정보를 찾을 수 없습니다."));
 
         // 추가 지원자 서류 결과 조회 시간 예외 처리
-        LocalDateTime addtionalTargetDoc = LocalDateTime.of(2026,3,2,10,0);
-        if(studentResult.getStudent().getAddition() && LocalDateTime.now().isBefore(addtionalTargetDoc)){
+        LocalDateTime additionalTargetDoc = LocalDateTime.of(2026,3,2,10,0);
+        if (Boolean.TRUE.equals(studentResult.getStudent().getAddition())
+                               && LocalDateTime.now().isBefore(additionalTargetDoc)) {
             throw new IllegalArgumentException("아직 추가 지원 서류 결과 조회 시간이 아닙니다.");
         }
 
