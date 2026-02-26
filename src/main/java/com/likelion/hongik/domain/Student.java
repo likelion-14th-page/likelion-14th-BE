@@ -34,6 +34,8 @@ public class Student {
 
     private String privateNum; // 고유번호
 
+    private Boolean addition;
+
     @OneToOne(mappedBy = "student")
     private StudentResult studentResult;
 
@@ -50,5 +52,9 @@ public class Student {
         if (studentResult != null && studentResult.getStudent() != this) {
             studentResult.setStudent(this);
         }
+    }
+
+    public void setAddition(Boolean addition) {
+        this.addition = addition;
     }
 }
