@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 public class StudentResultResponseDto {
     private String message;
     private Long studentId;
+    private Boolean addition;
     private String studentName;
     private ResultType document;
     private ResultType finalResult;

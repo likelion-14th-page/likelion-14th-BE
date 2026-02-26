@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Service
@@ -40,6 +41,12 @@ public class StudentImportService {
         }
 
         studentRepository.save(student);
+
+        LocalDateTime additionTime = LocalDateTime.of(2026, 2, 27, 0, 0);
+
+        if (LocalDateTime.now().isAfter(additionTime) ){
+            student.setAddition(true);
+        }
 
         studentResultRepository.findByStudent(student)
                 .orElseGet(() -> studentResultRepository.save(
