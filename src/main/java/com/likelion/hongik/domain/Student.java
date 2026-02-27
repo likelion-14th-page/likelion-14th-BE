@@ -13,7 +13,8 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder
 @Table(indexes = {
-        @Index(name = "idx_student_name_private_num", columnList = "name, privateNum")
+    @Index(name = "idx_student_private_name", columnList = "privateNum, name"),
+    @Index(name = "idx_student_part", columnList = "part")
 })
 public class Student {
     @Id
@@ -30,7 +31,7 @@ public class Student {
     private String phoneNum;
 
     @Enumerated(EnumType.STRING)
-    private PartType part; // 파트 (Enum)
+    private PartType part;
 
     private String privateNum; // 고유번호
 
