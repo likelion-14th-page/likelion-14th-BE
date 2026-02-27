@@ -48,7 +48,7 @@ public class StudentResultService {
 
     private String checkAnnouncementTime() {
         LocalDateTime now = LocalDateTime.now();
-        LocalDateTime targetDoc = LocalDateTime.of(2026, 2, 27, 10, 0);
+        LocalDateTime targetDoc = LocalDateTime.of(2026, 2, 28, 10, 0);
         LocalDateTime closeDoc = LocalDateTime.of(2026,3,5,22,0);
         LocalDateTime targetFinal = LocalDateTime.of(2026,3,7,10,0);
 
