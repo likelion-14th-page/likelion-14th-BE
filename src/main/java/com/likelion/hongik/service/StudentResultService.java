@@ -50,7 +50,7 @@ public class StudentResultService {
         LocalDateTime now = LocalDateTime.now();
         LocalDateTime targetDoc = LocalDateTime.of(2026, 2, 28, 10, 0);
         LocalDateTime closeDoc = LocalDateTime.of(2026,3,5,22,0);
-        LocalDateTime targetFinal = LocalDateTime.of(2026,3,7,10,0);
+        LocalDateTime targetFinal = LocalDateTime.of(2026,3,6,10,0);
 
         if (now.isBefore(targetDoc)) {
             throw new IllegalArgumentException("아직 서류 결과 조회 시간이 아닙니다." + now);
